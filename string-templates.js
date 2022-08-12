@@ -1,10 +1,8 @@
-// Se dau următoarele variabile
 const currency = {
   local: "RON",
   international: "€",
   exchangeRate: 5,
 };
-
 const book1 = {
   title: "Kéraban Încăpățânatul",
   author: "Jules Verne",

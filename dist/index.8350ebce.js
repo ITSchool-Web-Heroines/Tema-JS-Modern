@@ -532,7 +532,6 @@ function hmrAcceptRun(bundle, id) {
 }
 
 },{}],"bhPPS":[function(require,module,exports) {
-// Se dau următoarele variabile
 const currency = {
     local: "RON",
     international: "€",
