@@ -17,9 +17,9 @@ const book2 = {
 
 function displayBook(book) {
   // Completează această funcție
-  return `${book.title} de ${book.author} are pretul de ${
-    book.localPrice
-  } RON (${book.localPrice / 5} €)`;
+  return `${book.title} de ${book.author} are pretul de ${book.localPrice} ${
+    currency.local
+  } (${book.localPrice / currency.exchangeRate} ${currency.international})`;
 }
 
 console.log(displayBook(book1));
