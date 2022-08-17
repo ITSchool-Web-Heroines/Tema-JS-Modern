@@ -532,11 +532,11 @@ function hmrAcceptRun(bundle, id) {
 }
 
 },{}],"bZu7O":[function(require,module,exports) {
-// import { Vehicle } from "./Classes/vehicle";
-// import { Bicycle } from "./Classes/bike";
-// import { Car } from "./Classes/car";
-// import { electricCar } from "./Classes/Cars/electric-cars";
-// import { clasicCar } from "./Classes/Cars/clasic-cars";
+// import { Vehicle } from "./Classes/vehicle.js";
+// import { Bicycle } from "./Classes/bike.js";
+// import { Car } from "./Classes/car.js";
+// import { electricCar } from "./Classes/Cars/electric-cars.js";
+// import { clasicCar } from "./Classes/Cars/clasic-cars.js";
 class Vehicle {
     Price;
     FabricationYear;
