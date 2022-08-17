@@ -547,11 +547,8 @@ const book2 = {
     author: "Jaroslav Hašek",
     localPrice: 50
 };
-function priceRonEuro(price) {
-    return `are prețul de ${price} RON (${price / 5} €).`;
-}
 function displayBook(book) {
-    return `${book.title} de ${book.author} ${priceRonEuro(book.localPrice)}`;
+    return `${book.title} de ${book.author} are prețul de ${book.localPrice} ${currency.local} (${book.localPrice / currency.exchangeRate} ${currency.international}). `;
 }
 console.log(displayBook(book1));
 // "Kéraban Încăpățânatul de Jules Verne are prețul de 30 RON (6 €)"
