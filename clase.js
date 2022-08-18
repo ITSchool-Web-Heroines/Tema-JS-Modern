@@ -10,3 +10,9 @@ Clasele trebuie să reprezinte diferite vehicule:
 
 Crează câte un fișier pentru fiecare clasă      
 */
+
+import { Vehicle } from "./classes/vehicle.js";
+import { Bicycle } from "./classes/bicycle.js";
+import { Car } from "./classes/car.js";
+import { ElectricCar } from "./classes/electricCar.js";
+import { ClasicCar } from "./classes/clasicCar.js";
