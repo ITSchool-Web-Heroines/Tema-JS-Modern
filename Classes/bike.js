@@ -1,3 +1,4 @@
+import { Vehicle } from "./vehicle.js";
 export class Bicycle extends Vehicle {
   Use(destination) {
     if (destination === "city") {

@@ -1,3 +1,4 @@
+import { Vehicle } from "./vehicle.js";
 export class Car extends Vehicle {
   constructor(price, year, type, range, noseats, nodoors) {
     super(price, year);

@@ -1,62 +1,9 @@
-// import { Vehicle } from "./Classes/vehicle.js";
-// import { Bicycle } from "./Classes/bike.js";
-// import { Car } from "./Classes/car.js";
-// import { electricCar } from "./Classes/Cars/electric-cars.js";
-// import { clasicCar } from "./Classes/Cars/clasic-cars.js";
+import { Vehicle } from "./Classes/vehicle.js";
+import { Bicycle } from "./Classes/bike.js";
+import { Car } from "./Classes/car.js";
+import { electricCar } from "./Classes/Cars/electric-cars.js";
+import { clasicCar } from "./Classes/Cars/clasic-cars.js";
 
-class Vehicle {
-  Price;
-  FabricationYear;
-  constructor(price, year) {
-    this.Price = `${price} $`;
-    this.FabricationYear = year;
-  }
-}
-class Bicycle extends Vehicle {
-  Use(destination) {
-    if (destination === "city") {
-      return "De oraș";
-    }
-    if (destination === "mtb") {
-      return "MTB";
-    }
-    return "Universal";
-  }
-  constructor(price, year, wheelsize, gears) {
-    super(price, year);
-    this.wheelSize = `${wheelsize} INCH`;
-    this.Gears = `${gears} viteze`;
-  }
-}
-class Car extends Vehicle {
-  constructor(price, year, type, range, noseats, nodoors) {
-    super(price, year);
-    this.Type = type;
-    this.Range = `${range} KM`;
-    this.noSeats = noseats;
-    this.noDoors = nodoors;
-  }
-}
-class clasicCar extends Car {
-  Engine(fuel) {
-    if (fuel === "B") {
-      return "Benzină";
-    }
-    if (fuel === "M") {
-      return "Motorină";
-    }
-    return "Hibrid";
-  }
-  constructor(price, year, type, Range, noSeats, noDoors) {
-    super(price, year, type, Range, noSeats, noDoors);
-  }
-}
-class electricCar extends Car {
-  constructor(price, year, type, range, noseats, nodoors, batery) {
-    super(price, year, type, range, noseats, nodoors);
-    this.Batery = `${batery} kWh`;
-  }
-}
 // VEHICUL
 const theVehicle = new Vehicle(2000, 2002);
 function showVehicle(vehicle) {

@@ -1,3 +1,4 @@
+import { Car } from "../car.js";
 export class clasicCar extends Car {
   Engine(fuel) {
     if (fuel === "B") {
