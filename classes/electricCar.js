@@ -1,3 +1,4 @@
+import { Car } from "./car.js";
 export class ElectricCar extends Car {
   battery;
   constructor(price, year, type, range, noOfSeats, noOfDoors, battery) {

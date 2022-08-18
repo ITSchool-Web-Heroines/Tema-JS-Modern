@@ -1,3 +1,4 @@
+import { Vehicle } from "./vehicle.js";
 export class Bicycle extends Vehicle {
   destination;
   wheelSize;
