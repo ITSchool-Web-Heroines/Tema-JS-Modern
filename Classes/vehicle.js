@@ -1,4 +1,4 @@
-export class Vehicle {
+export default class Vehicle {
   Price;
   FabricationYear;
   constructor(price, year) {

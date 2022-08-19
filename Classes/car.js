@@ -1,5 +1,5 @@
-import { Vehicle } from "./vehicle.js";
-export class Car extends Vehicle {
+import Vehicle from "./Vehicle.js";
+export default class Car extends Vehicle {
   constructor(price, year, type, range, noseats, nodoors) {
     super(price, year);
     this.Type = type;

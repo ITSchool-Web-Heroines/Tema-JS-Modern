@@ -532,13 +532,17 @@ function hmrAcceptRun(bundle, id) {
 }
 
 },{}],"bZu7O":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 var _vehicleJs = require("./Classes/vehicle.js");
+var _vehicleJsDefault = parcelHelpers.interopDefault(_vehicleJs);
 var _bikeJs = require("./Classes/bike.js");
+var _bikeJsDefault = parcelHelpers.interopDefault(_bikeJs);
 var _carJs = require("./Classes/car.js");
+var _carJsDefault = parcelHelpers.interopDefault(_carJs);
 var _electricCarsJs = require("./Classes/Cars/electric-cars.js");
 var _clasicCarsJs = require("./Classes/Cars/clasic-cars.js");
 // VEHICUL
-const theVehicle = new (0, _vehicleJs.Vehicle)(2000, 2002);
+const theVehicle = new (0, _vehicleJsDefault.default)(2000, 2002);
 function showVehicle(vehicle) {
     console.log(`VEHICUL
 Preț: ${vehicle.Price}. 
@@ -546,18 +550,28 @@ An de fabricație: ${vehicle.FabricationYear}. `);
 }
 showVehicle(theVehicle);
 // BICICLETA
-const theBike = new (0, _bikeJs.Bicycle)("250", 2015, 26, 21);
+/*
+const theBike = new Bicycle("250", 2015, 26, 21);
 function showBike(bike) {
-    console.log(`BICICLETĂ
+  console.log(`BICICLETĂ
 Preț: ${bike.Price}. 
 An de fabricație: ${bike.FabricationYear}. 
 Dimensiune roți: ${bike.wheelSize}.
 Viteze: ${bike.Gears}.
 Destinată pentru: ${theBike.Use("mtb")}.`);
 }
+*/ const theBike = new (0, _bikeJsDefault.default)("250", 2015, 26, 21, "MTB");
+function showBike(bike) {
+    console.log(`BICICLETĂ
+Preț: ${bike.Price}. 
+An de fabricație: ${bike.FabricationYear}. 
+Dimensiune roți: ${bike.wheelSize}.
+Viteze: ${bike.Gears}.
+Destinată pentru: ${bike.Use}.`);
+}
 showBike(theBike);
 // MASINA
-const theCar = new (0, _carJs.Car)("3500", 2015, "Ford", 220, 4, 4);
+const theCar = new (0, _carJsDefault.default)("3500", 2015, "Ford", 220, 4, 4);
 function showCar(car) {
     console.log(`MAȘINĂ
 Preț: ${car.Price}. 
@@ -569,9 +583,10 @@ Număr de uși: ${car.noDoors}.`);
 }
 showCar(theCar);
 // MASINA CLASICA
-const theCCar = new (0, _clasicCarsJs.clasicCar)("5000", 2012, "VW", 230, 4, 4);
+/*
+const theCCar = new ClasicCar("5000", 2012, "VW", 230, 4, 4);
 function showClasicCar(car) {
-    console.log(`MAȘINĂ CLASICĂ
+  console.log(`MAȘINĂ CLASICĂ
 Preț: ${car.Price}. 
 An de fabricație: ${car.FabricationYear}. 
 Brand: ${car.Type}. 
@@ -580,9 +595,20 @@ Număr de locuri: ${car.noSeats}.
 Număr de uși: ${car.noDoors}. 
 Combustibil: ${theCCar.Engine("B")}.`);
 }
+*/ const theCCar = new (0, _clasicCarsJs.ClasicCar)("5000", 2012, "VW", 230, 4, 4, "Benzină");
+function showClasicCar(car) {
+    console.log(`MAȘINĂ CLASICĂ
+Preț: ${car.Price}. 
+An de fabricație: ${car.FabricationYear}. 
+Brand: ${car.Type}. 
+Autonomie: ${car.Range}. 
+Număr de locuri: ${car.noSeats}. 
+Număr de uși: ${car.noDoors}. 
+Combustibil: ${car.fuel}.`);
+}
 showClasicCar(theCCar);
 // MASINA ELECTRICA
-const theECar = new (0, _electricCarsJs.electricCar)("10.000", 2019, "Tesla", 250, 4, 4, 100);
+const theECar = new (0, _electricCarsJs.ElectricCar)("10.000", 2019, "Tesla", 250, 4, 4, 100);
 function showElectricCar(car) {
     console.log(`MAȘINĂ ELECTRICĂ
 Preț: ${car.Price}. 
@@ -595,10 +621,9 @@ Baterie: ${car.Batery}.`);
 }
 showElectricCar(theECar);
 
-},{"./Classes/vehicle.js":"3a5rO","./Classes/bike.js":"fq1ix","./Classes/car.js":"4u3AM","./Classes/Cars/electric-cars.js":"hlwKa","./Classes/Cars/clasic-cars.js":"OnsF7"}],"3a5rO":[function(require,module,exports) {
+},{"./Classes/vehicle.js":"3a5rO","./Classes/bike.js":"fq1ix","./Classes/car.js":"4u3AM","./Classes/Cars/electric-cars.js":"hlwKa","./Classes/Cars/clasic-cars.js":"OnsF7","@parcel/transformer-js/src/esmodule-helpers.js":"ffwHS"}],"3a5rO":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "Vehicle", ()=>Vehicle);
 class Vehicle {
     Price;
     FabricationYear;
@@ -607,6 +632,7 @@ class Vehicle {
         this.FabricationYear = year;
     }
 }
+exports.default = Vehicle;
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"ffwHS"}],"ffwHS":[function(require,module,exports) {
 exports.interopDefault = function(a) {
@@ -641,27 +667,37 @@ exports.export = function(dest, destName, get) {
 },{}],"fq1ix":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "Bicycle", ()=>Bicycle);
-var _vehicleJs = require("./vehicle.js");
-class Bicycle extends (0, _vehicleJs.Vehicle) {
-    Use(destination) {
-        if (destination === "city") return "De oraș";
-        if (destination === "mtb") return "MTB";
-        return "Universal";
-    }
-    constructor(price, year, wheelsize, gears){
+var _vehicleJs = require("./Vehicle.js");
+var _vehicleJsDefault = parcelHelpers.interopDefault(_vehicleJs);
+class Bicycle extends (0, _vehicleJsDefault.default) {
+    constructor(price, year, wheelsize, gears, use){
         super(price, year);
         this.wheelSize = `${wheelsize} INCH`;
         this.Gears = `${gears} viteze`;
+        this.Use = use;
     }
 }
+exports.default = Bicycle;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"ffwHS","./vehicle.js":"3a5rO"}],"4u3AM":[function(require,module,exports) {
+},{"./Vehicle.js":"dXtVs","@parcel/transformer-js/src/esmodule-helpers.js":"ffwHS"}],"dXtVs":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "Car", ()=>Car);
-var _vehicleJs = require("./vehicle.js");
-class Car extends (0, _vehicleJs.Vehicle) {
+class Vehicle {
+    Price;
+    FabricationYear;
+    constructor(price, year){
+        this.Price = `${price} $`;
+        this.FabricationYear = year;
+    }
+}
+exports.default = Vehicle;
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"ffwHS"}],"4u3AM":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _vehicleJs = require("./Vehicle.js");
+var _vehicleJsDefault = parcelHelpers.interopDefault(_vehicleJs);
+class Car extends (0, _vehicleJsDefault.default) {
     constructor(price, year, type, range, noseats, nodoors){
         super(price, year);
         this.Type = type;
@@ -670,35 +706,48 @@ class Car extends (0, _vehicleJs.Vehicle) {
         this.noDoors = nodoors;
     }
 }
+exports.default = Car;
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"ffwHS","./vehicle.js":"3a5rO"}],"hlwKa":[function(require,module,exports) {
+},{"./Vehicle.js":"dXtVs","@parcel/transformer-js/src/esmodule-helpers.js":"ffwHS"}],"hlwKa":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "electricCar", ()=>electricCar);
+parcelHelpers.export(exports, "ElectricCar", ()=>ElectricCar);
 var _carJs = require("../car.js");
-class electricCar extends (0, _carJs.Car) {
+var _carJsDefault = parcelHelpers.interopDefault(_carJs);
+class ElectricCar extends (0, _carJsDefault.default) {
     constructor(price, year, type, range, noseats, nodoors, batery){
         super(price, year, type, range, noseats, nodoors);
         this.Batery = `${batery} kWh`;
     }
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"ffwHS","../car.js":"4u3AM"}],"OnsF7":[function(require,module,exports) {
+},{"../car.js":"4u3AM","@parcel/transformer-js/src/esmodule-helpers.js":"ffwHS"}],"OnsF7":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
-parcelHelpers.export(exports, "clasicCar", ()=>clasicCar);
+// export class ClasicCar extends Car {
+//   Engine(fuel) {
+//     if (fuel === "B") {
+//       return "Benzină";
+//     }
+//     if (fuel === "M") {
+//       return "Motorină";
+//     }
+//     return "Hibrid";
+//   }
+//   constructor(price, year, type, Range, noSeats, noDoors) {
+//     super(price, year, type, Range, noSeats, noDoors);
+//   }
+// }
+parcelHelpers.export(exports, "ClasicCar", ()=>ClasicCar);
 var _carJs = require("../car.js");
-class clasicCar extends (0, _carJs.Car) {
-    Engine(fuel) {
-        if (fuel === "B") return "Benzină";
-        if (fuel === "M") return "Motorină";
-        return "Hibrid";
-    }
-    constructor(price, year, type, Range, noSeats, noDoors){
+var _carJsDefault = parcelHelpers.interopDefault(_carJs);
+class ClasicCar extends (0, _carJsDefault.default) {
+    constructor(price, year, type, Range, noSeats, noDoors, fuel){
         super(price, year, type, Range, noSeats, noDoors);
+        this.fuel = fuel;
     }
 }
 
-},{"@parcel/transformer-js/src/esmodule-helpers.js":"ffwHS","../car.js":"4u3AM"}]},["5zx6r","bZu7O"], "bZu7O", "parcelRequire94c2")
+},{"../car.js":"4u3AM","@parcel/transformer-js/src/esmodule-helpers.js":"ffwHS"}]},["5zx6r","bZu7O"], "bZu7O", "parcelRequire94c2")
 
 //# sourceMappingURL=clase.598c6ef6.js.map
