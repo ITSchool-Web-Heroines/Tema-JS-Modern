@@ -10,3 +10,7 @@ Clasele trebuie să reprezinte diferite vehicule:
 
 Crează câte un fișier pentru fiecare clasă      
 */
+
+import { Vehicul } from "./Vehicul";
+import { Masina } from "./Masina";
+import { Bicicleta } from "./Bicicleta";
